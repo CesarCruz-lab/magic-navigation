@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  font-size: 16px;
+  --clr: #2f222f;
+  --clr-light: #fafafa;
+  --spacing: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: var(--clr);
+}
+
+.navigation-container {
+  position: relative;
+  display: flex;
+  padding: 0 calc(var(--spacing) * 3);
+  justify-content: center;
+  background: var(--clr-light);
+  border-radius: calc(var(--spacing) * 2);
+}
+
+.navigation {
+  display: flex;
+  height: 90px;
+  list-style: none;
+}
+
+.list {
+  width: 70px;
+  z-index: 1;
+}
+
+.list a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  outline: none;
+  color: var(--clr);
+  font-weight: 500;
+}
+
+.list a .icon {
+  font-size: 1.5rem;
+  line-height: 90px;
+}
+
+.list a .text {
+  position: absolute;
+  top: 50%;
+  transition: transform 500ms, opacity 500ms;
+  transform: translateY(-25px);
+  line-height: 90px;
+  opacity: 0;
+}
+
+.list a .icon {
+  transition: 500ms;
+}
+
+.list a.active .icon {
+  transform: translateY(-41px);
+}
+
+.list a.active .text {
+  opacity: 1;
+  transform: translateY(-45px);
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  left: calc(var(--spacing) + 22px);
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  margin: 0 4px;
+  border-radius: 100%;
+  background: #22ff22;
+  box-shadow: 0 0 0 4px var(--clr);
+  transition: 300ms;
+}
+
+.indicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  width: 14px;
+  height: 14px;
+  border-top-right-radius: 25px;
+  background: transparent;
+  box-shadow: 0 -5px 0 var(--clr);
+}
+.indicator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  width: 14px;
+  height: 14px;
+  border-top-left-radius: 25px;
+  background: transparent;
+  box-shadow: 0 -5px 0 var(--clr);
+}
